@@ -1,0 +1,53 @@
+# DO NOT RUN THIS MANUALLY - THIS GETS RUN AS PART OF A DIFFERENT GH ACTIONS SCRIPT
+
+name: Publish Release to Pub.dev
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+*'
+
+env:
+  FLUTTER_VERSION: 3.16.1
+
+jobs:
+  Release-It-To-The-People:
+    runs-on: macos-13
+    permissions: 
+      id-token: write
+      contents: read
+    steps:
+      - name: "Test Release Check"
+        id: test-release-check
+        run: |
+          if [[ ${{ github.repository_owner }} == *"ololabs-playground"* ]]
+          then
+            echo "is-test=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is-test=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: "Checkout Project"
+        if: ${{ steps.test-release-check.outputs.is-test == 'true' }}
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        if: ${{ steps.test-release-check.outputs.is-test == 'true' }}
+        uses: flutter-actions/setup-flutter@v2.3
+        with:
+          channel: stable
+          version: ${{ env.FLUTTER_VERSION }}
+
+      - name: "Install Flutter Dependencies"
+        if: ${{ steps.test-release-check.outputs.is-test == 'true' }}
+        run: | 
+          flutter pub get
+
+      - name: "Unit Tests: Flutter"
+        if: ${{ steps.test-release-check.outputs.is-test == 'true' }}
+        run: |
+          flutter test --reporter github
+
+      - name: "Publish Release"
+        if: ${{ steps.test-release-check.outputs.is-test == 'false' }}
+        run: dart pub publish --force
+      
