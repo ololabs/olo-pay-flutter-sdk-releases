@@ -1,0 +1,63 @@
+PODS:
+  - Flutter (1.0.0)
+  - olo_pay_sdk (3.0.2):
+    - Flutter
+    - OloPaySDK (= 5.2.4)
+  - OloPaySDK (5.2.4):
+    - Stripe (= 24.23.1)
+  - Stripe (24.23.1):
+    - StripeApplePay (= 24.23.1)
+    - StripeCore (= 24.23.1)
+    - StripePayments (= 24.23.1)
+    - StripePaymentsUI (= 24.23.1)
+    - StripeUICore (= 24.23.1)
+  - StripeApplePay (24.23.1):
+    - StripeCore (= 24.23.1)
+  - StripeCore (24.23.1)
+  - StripePayments (24.23.1):
+    - StripeCore (= 24.23.1)
+    - StripePayments/Stripe3DS2 (= 24.23.1)
+  - StripePayments/Stripe3DS2 (24.23.1):
+    - StripeCore (= 24.23.1)
+  - StripePaymentsUI (24.23.1):
+    - StripeCore (= 24.23.1)
+    - StripePayments (= 24.23.1)
+    - StripeUICore (= 24.23.1)
+  - StripeUICore (24.23.1):
+    - StripeCore (= 24.23.1)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - olo_pay_sdk (from `.symlinks/plugins/olo_pay_sdk/ios`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Stripe
+    - StripeApplePay
+    - StripeCore
+    - StripePayments
+    - StripePaymentsUI
+    - StripeUICore
+  https://github.com/ololabs/podspecs.git:
+    - OloPaySDK
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  olo_pay_sdk:
+    :path: ".symlinks/plugins/olo_pay_sdk/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  olo_pay_sdk: 749997d457c535c769a0ffa33f549218bfbbfcc4
+  OloPaySDK: 832f1818d10bd3bd1c470851aad6a0d530a724ec
+  Stripe: 948b5ebd036f500c9ec51ae9ee6c8aa2b6bc0156
+  StripeApplePay: 6bfbe79124691915465418a153a9836f8e932e46
+  StripeCore: 0be322592533ce7bdecd73a1a1cdd0885e45f614
+  StripePayments: 7f60cef4c470cedd37559e80f31317d6d983c346
+  StripePaymentsUI: ff267b46ed98548c6be69702b880beef34924641
+  StripeUICore: 2840e4f8a32403b0cc7d4d0209e9b6aa168cb26a
+
+PODFILE CHECKSUM: 5745d88347a7dbd926dce6bf75d56bd8ed2df352
+
+COCOAPODS: 1.16.2
