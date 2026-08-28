@@ -1,1 +1,0 @@
-rootProject.name = "Olo Pay Flutter (App)"
